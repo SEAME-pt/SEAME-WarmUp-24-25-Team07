@@ -1,3 +1,7 @@
+
+#include "Acar.hpp"
+#include "Part.hpp"
+
 Class Part {
 public:
     Part();
@@ -36,7 +40,7 @@ public:
     }
 };
 
-class Car {
+class Car : public Acar{
 public:
     Car() {
         engine_ = new Engine();
