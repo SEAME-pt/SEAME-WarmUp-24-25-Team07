@@ -25,7 +25,7 @@ void SedanCar::drive() const {
 }
 
 std::string SedanCar::getInfo() const {
-    return _make + " " + _model + " (" + std::to_string(_year) + "), Max Speed: " + std::to_string(_maxSpeed) << std::endl;
+    return _make + " " + _model + " (" + std::to_string(_year) + "), Max Speed: " + std::to_string(_maxSpeed)  + " km/h\n";
 }
 
 // Operator overload
