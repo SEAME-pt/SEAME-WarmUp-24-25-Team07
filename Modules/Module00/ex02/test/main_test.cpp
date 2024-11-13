@@ -60,7 +60,7 @@ int main() {
     str4 = "hello world";
 	str6 = "world";
     result = test.test_erase(str4, str6);
-    check_and_print("do_erase", result, "hello");
+    check_and_print("do_erase", result, "hello ");
 	
 
     std::cout << "Todos os testes passaram!" << std::endl;
