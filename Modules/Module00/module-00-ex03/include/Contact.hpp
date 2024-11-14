@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoda-s <antoda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:46:30 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/04/16 17:32:00 by antoda-s         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:34:39 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,16 @@ class Contact
 
 		static std::string formatField(std::string field);
 
+		void setBookmarked(bool);
+		bool isBookmarked();
+
 	private:
 		std::string _firstName;
 		std::string _lastName;
 		std::string _nickName;
 		std::string _phoneNumber;
 		std::string _darkestSecret;
+		bool _isBookmarked;
 };
 
 #endif

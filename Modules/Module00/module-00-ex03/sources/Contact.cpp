@@ -6,15 +6,21 @@
 /*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:50:54 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/11/14 10:25:41 by mamaral-         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:35:16 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "../include/Contact.hpp"
 
-Contact::Contact(void){ }
+Contact::Contact(void)
+{
 
-Contact::~Contact(void){}
+}
+
+Contact::~Contact(void)
+{
+
+}
 
 Contact :: Contact(std::string fname, std::string lname, std::string nname, std::string pnumber, std::string dsecret)
 {
@@ -59,4 +65,14 @@ std::string Contact::getLastName(void)
 std::string Contact::getNickName(void)
 {
 	return (this->_nickName);
+}
+
+void Contact::setBookmarked(bool isBookmarked)
+{
+	this->_isBookmarked = isBookmarked;
+}
+
+bool Contact::isBookmarked()
+{
+	return this->_isBookmarked;
 }

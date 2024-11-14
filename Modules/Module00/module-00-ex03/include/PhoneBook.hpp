@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoda-s <antoda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:48:40 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/04/19 12:29:59 by antoda-s         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:34:55 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ class PhoneBook
 		void _displayPhoneBook(void);
 		bool _isStringPrintable(std::string str);
 		void _displayInvalid(void);
+
+		void remove(int index);
+		void remove(std::string phoneNumber);
+		void bookmark(int index);
+		void listBookmarks(void);
 
 	private:
 		int _i;

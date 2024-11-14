@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoda-s <antoda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:56:57 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/09/23 16:59:20 by antoda-s         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:36:13 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void PhoneBook::_displayMenu()
 	std::cout << std::endl;
 	std::cout << "        > ADD" << std::endl;
 	std::cout << "        > SEARCH" << std::endl;
+	std::cout << "        > REMOVE" << std::endl;
+	std::cout << "        > BOOKMARK" << std::endl;
 	std::cout << "        > EXIT" << std::endl;
 	this->_displayPrompt("Enter your OPTION > ");
 }
@@ -127,4 +129,64 @@ void PhoneBook::search(void)
 void PhoneBook::_displayInvalid()
 {
 	std::cout << "\n██████  INVALID INPUT  :  TRY AGAIN!  ███████████████\n" << std::endl;
+}
+
+void PhoneBook::remove(int index)
+{
+	if (index < 0 || index >= MAX_CONTACTS)
+	{
+		std::cout << "\n██████  INVALID INDEX  ██████████████████████████████\n" << std::endl;
+		return;
+	}
+
+	for (int i = index; i < MAX_CONTACTS - 1; i++)
+	{
+		this->_contacts[i] = this->_contacts[i + 1];
+	}
+	this->_contacts[MAX_CONTACTS - 1] = Contact();
+	std::cout << "\n██████  CONTACT REMOVED  ████████████████████████████\n" << std::endl;
+}
+
+void PhoneBook::remove(std::string phoneNumber)
+{
+	for (int i = 0; i < MAX_CONTACTS; i++)
+	{
+		if (this->_contacts[i].getPhoneNumber() == phoneNumber)
+		{
+			this->remove(i);
+			return;
+		}
+	}
+	std::cout << "\n██████  CONTACT NOT FOUND  ██████████████████████████\n" << std::endl;
+}
+
+void PhoneBook::bookmark(int index)
+{
+	if (index < 0 || index >= MAX_CONTACTS)
+	{
+		std::cout << "\n██████  INVALID INDEX  ██████████████████████████████\n" << std::endl;
+		return;
+	}
+
+	this->_contacts[index].setBookmarked(true);
+	std::cout << "\n██████  CONTACT BOOKMARKED  █████████████████████████\n" << std::endl;
+}
+
+void PhoneBook::listBookmarks(void)
+{
+	std::cout << "\n|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	for (int i = 0; i < MAX_CONTACTS; i++)
+	{
+		if (this->_contacts[i].isBookmarked())
+		{
+			std::string field;
+			std::cout << "|" << std::setw(10) << i << "|";
+			field = this->_contacts[i].getFirstName();
+			std::cout << std::setw(10) << Contact::formatField(field) << "|";
+			field = this->_contacts[i].getLastName();
+			std::cout << std::setw(10) << Contact::formatField(field) << "|";
+			field = this->_contacts[i].getNickName();
+			std::cout << std::setw(10) << Contact::formatField(field) << "|" << std::endl;
+		}
+	}
 }
