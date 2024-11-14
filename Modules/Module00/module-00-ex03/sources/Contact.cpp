@@ -3,24 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antoda-s <antoda-s@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:50:54 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/09/23 11:39:18 by antoda-s         ###   ########.fr       */
+/*   Updated: 2024/11/14 10:25:41 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Contact.hpp"
+#include "Contact.hpp"
 
-Contact::Contact(void)
-{
+Contact::Contact(void){ }
 
-}
-
-Contact::~Contact(void)
-{
-
-}
+Contact::~Contact(void){}
 
 Contact :: Contact(std::string fname, std::string lname, std::string nname, std::string pnumber, std::string dsecret)
 {
