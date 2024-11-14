@@ -11,8 +11,8 @@ protected:
 
 public:
     Car();
-    Car(const std::string& make, const std::string& model, int year);
-    Car(const Car& other);
+    Car(const std::string& make, const std::string& model, const unsigned int year);
+    Car(const Car& original);
     Car& operator=(const Car& other);
     virtual ~Car();
 
