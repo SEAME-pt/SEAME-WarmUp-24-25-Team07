@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:56:57 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/11/14 12:23:46 by mamaral-         ###   ########.fr       */
+/*   Updated: 2024/11/14 14:55:00 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void PhoneBook::_displayPhoneBook(void)
     int currentPage = 0;
 
     while (true) {
-        std::cout << "\n|     Index|First Name| Nickname| Phonenumber |" << std::endl;
+        std::cout << "\n|     Index|First Name| Nickname |Phonenumber |" << std::endl;
+        std::cout << "|----------|----------|----------|------------|" << std::endl;
 
         auto it = _contacts.begin();
         std::advance(it, currentPage * CONTACTS_PER_PAGE);
@@ -85,7 +86,7 @@ void PhoneBook::_displayPhoneBook(void)
             field = it->second->getNickName();
             std::cout << std::setw(10) << Contact::formatField(field) << "|";
             field = it->second->getPhoneNumber();
-            std::cout << std::setw(10) << Contact::formatField(field) << "|" << std::endl;
+            std::cout << std::setw(12) << Contact::formatField(field) << "|" << std::endl;
         }
 
         std::cout << "\nPage " << (currentPage + 1) << " of " << totalPages << std::endl;
@@ -214,23 +215,10 @@ void PhoneBook::remove(const std::string& phoneNumber)
     }
 }
 
-void PhoneBook::bookmark(int index)
-{
-    if (index < 0 || index >= static_cast<int>(_contacts.size()))
-    {
-        std::cout << "\n██████  INVALID INDEX  ██████████████████████████████\n" << std::endl;
-        return;
-    }
-
-    auto it = _contacts.begin();
-    std::advance(it, index);
-    it->second->setBookmarked(true);
-    std::cout << "\n██████  CONTACT BOOKMARKED  █████████████████████████\n" << std::endl;
-}
-
 void PhoneBook::listBookmarks(void)
 {
-    std::cout << "\n|     Index|First Name| Nickname|  Phonenumber|" << std::endl;
+    std::cout << "\n|     Index|First Name| Nickname |Phonenumber |" << std::endl;
+    std::cout << "|----------|----------|----------|------------|" << std::endl;
     int index = 0;
     for (const auto& [key, contactPtr] : _contacts)
     {
@@ -241,8 +229,8 @@ void PhoneBook::listBookmarks(void)
             std::cout << std::setw(10) << Contact::formatField(field) << "|";
             field = contactPtr->getNickName();
             std::cout << std::setw(10) << Contact::formatField(field) << "|";
-			field = contactPtr->getPhoneNumber();
-            std::cout << std::setw(10) << Contact::formatField(field) << "|" << std::endl;
+            field = contactPtr->getPhoneNumber();
+            std::cout << std::setw(12) << Contact::formatField(field) << "|" << std::endl;
         }
         ++index;
     }
