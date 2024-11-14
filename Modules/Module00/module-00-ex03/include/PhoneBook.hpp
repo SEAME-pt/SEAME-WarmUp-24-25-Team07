@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:48:40 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/11/14 12:19:10 by mamaral-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:40:27 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,22 @@
 # include <map>
 # include <algorithm>
 
-struct ContactKey {
-    std::string name;
-    std::string number;
-
-    bool operator<(const ContactKey& other) const;
-
-};
+template<typename T>
+T getInput(const std::string& prompt) {
+    T input;
+    std::cout << prompt + "    :  ";
+    std::getline(std::cin, input);
+    return input;
+}
 class PhoneBook
 {
 	public:
 		PhoneBook(void);
 		~PhoneBook(void);
 
-		void add(void);
+		void add(std::string nm, std::string nn, std::string pn);
 		void search(void);
+		void receiveContact();
 		void _displayMenu(void);
 		void _displayPrompt(std::string prompt);
 		void _displayPhoneBook(void);
@@ -45,7 +46,7 @@ class PhoneBook
 		void listBookmarks(void);
 
 	private:
-		std::multimap<std::string, Contact*> _contacts;
+		std::multimap<std::string, Contact> _contacts;
 	// private:
 };
 

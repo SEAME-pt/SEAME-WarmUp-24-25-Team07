@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 20:09:53 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/11/14 14:50:42 by mamaral-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:49:34 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(void)
 		else
 		if (!input.compare("ADD"))
 		// if (input == "ADD")
-			pb.add();
+			pb.receiveContact();
 		else if (input == "SEARCH")
 			pb._displayPhoneBook();
 		else if (input == "REMOVE")

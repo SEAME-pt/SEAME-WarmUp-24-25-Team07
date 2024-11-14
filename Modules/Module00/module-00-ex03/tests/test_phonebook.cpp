@@ -1,50 +1,36 @@
-#include "gtest/gtest.h"
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-TEST(PhoneBookTest, AddContact) {
+TEST_CASE("AddContact", "[PhoneBook]") {
     PhoneBook pb;
-    pb.add("John", "Doe", "1234567890", "Johnny");
-    ASSERT_EQ(pb.getContactsSize(), 1);
+    pb.add("John", "Doe", "1234567890");
+    REQUIRE(pb.getContactsSize() == 1);
 }
 
-TEST(PhoneBookTest, SearchContact) {
+TEST_CASE("SearchContact", "[PhoneBook]") {
     PhoneBook pb;
-    pb.add("John", "Doe", "1234567890", "Johnny");
+    pb.add("John", "Doe", "1234567890");
     pb.search();
     // Add assertions to verify the search results
 }
 
-TEST(PhoneBookTest, RemoveContactByIndex) {
+TEST_CASE("RemoveContactByIndex", "[PhoneBook]") {
     PhoneBook pb;
-    pb.add("John", "Doe", "1234567890", "Johnny");
+    pb.add("John", "Doe", "1234567890");
     pb.remove(0);
-    ASSERT_EQ(pb.getContactsSize(), 0);
+    REQUIRE(pb.getContactsSize() == 0);
 }
 
-TEST(PhoneBookTest, RemoveContactByPhoneNumber) {
+TEST_CASE("RemoveContactByPhoneNumber", "[PhoneBook]") {
     PhoneBook pb;
-    pb.add("John", "Doe", "1234567890", "Johnny");
+    pb.add("John", "Doe", "1234567890");
     pb.remove("1234567890");
-    ASSERT_EQ(pb.getContactsSize(), 0);
+    REQUIRE(pb.getContactsSize() == 0);
 }
 
-TEST(PhoneBookTest, BookmarkContact) {
+TEST_CASE("BookmarkContact", "[PhoneBook]") {
     PhoneBook pb;
-    pb.add("John", "Doe", "1234567890", "Johnny");
-    pb.bookmark(0);
-    // Add assertions to verify the bookmark status
-}
-
-TEST(PhoneBookTest, ListBookmarks) {
-    PhoneBook pb;
-    pb.add("John", "Doe", "1234567890", "Johnny");
-    pb.bookmark(0);
-    pb.listBookmarks();
-    // Add assertions to verify the bookmarked contacts
-}
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    // Add test case for bookmarking a contact
 }

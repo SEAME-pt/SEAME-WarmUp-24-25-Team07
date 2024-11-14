@@ -15,6 +15,3 @@ add_executable(PhoneBook sources/main.cpp sources/PhoneBook.cpp sources/Contact.
 
 # Add the tests directory
 add_subdirectory(tests)
-
-# Link the testing framework
-target_link_libraries(PhoneBook gtest gtest_main)

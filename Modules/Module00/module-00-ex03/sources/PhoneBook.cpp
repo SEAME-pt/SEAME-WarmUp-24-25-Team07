@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:56:57 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/11/14 14:55:00 by mamaral-         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:43:22 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,23 @@ PhoneBook::PhoneBook(void){ }
 
 PhoneBook::~PhoneBook(void){ }
 
-void PhoneBook::add(void)
+void PhoneBook::receiveContact()
 {
-	std::string name, nickname, pnumber;
-
+    std::string name, nickname, pnumber;
 	std::cout << "\n██████  PROVIDE CONTACT INFORMATION  ████████████████\n" << std::endl;
-	std::cout << "Name    :  ";
-	std::getline(std::cin, name, '\n');
-	std::cout << "Phone number  :  ";
-	std::getline(std::cin, pnumber, '\n');
+    name = getInput<std::string>("Name");
+    nickname = getInput<std::string>("Nickname");
+    pnumber = getInput<std::string>("Phone number");
+    add(name, nickname, pnumber);
+}
+
+void PhoneBook::add(std::string name, std::string nickname, std::string pnumber)
+{
 	auto it = _contacts.find(pnumber);
-    while (it != _contacts.end()) //! validate
-    {
+    if (it != _contacts.end()) {
         std::cout << "\n██████  PHONE NUMBER ALREADY EXISTS  ████████████████\n" << std::endl;
-		std::cout << "Phone number  :  ";
-		if (!std::getline(std::cin, pnumber) || pnumber.empty())
-        {
-            std::cout << "\nInput error or EOF detected. Exiting...\n";
-            return;
-        }
-		it = _contacts.find(pnumber);
+        return ;
     }
-	std::cout << "Nickname      :  ";
-	std::getline(std::cin, nickname, '\n');
 
 	if (name.length() < 1 || nickname.length() < 1 || pnumber.length() < 1)
 	{
@@ -52,8 +46,7 @@ void PhoneBook::add(void)
 			std::cout << "\n██████  INVALID CHARACTER INPUT  ██████████████████\n" << std::endl;
 			return ;
 		}
-	Contact newContact(name, nickname, pnumber);
-	this->_contacts.insert(std::make_pair(pnumber, new Contact(name, nickname, pnumber)));
+	this->_contacts.insert(std::make_pair(pnumber, Contact(name, nickname, pnumber)));
 	std::cout << "\n██████  CONTACT SAVED  ██████████████████████████████\n" << std::endl;
 }
 
@@ -81,11 +74,11 @@ void PhoneBook::_displayPhoneBook(void)
 
         for (int i = 0; i < CONTACTS_PER_PAGE && it != _contacts.end(); ++i, ++it) {
             std::cout << "|" << std::setw(10) << (currentPage * CONTACTS_PER_PAGE + i) << "|";
-            std::string field = it->second->getName();
+            std::string field = it->second.getName();
             std::cout << std::setw(10) << Contact::formatField(field) << "|";
-            field = it->second->getNickName();
+            field = it->second.getNickName();
             std::cout << std::setw(10) << Contact::formatField(field) << "|";
-            field = it->second->getPhoneNumber();
+            field = it->second.getPhoneNumber();
             std::cout << std::setw(12) << Contact::formatField(field) << "|" << std::endl;
         }
 
@@ -118,7 +111,7 @@ void PhoneBook::_displayPhoneBook(void)
             } else {
                 auto it = _contacts.begin();
                 std::advance(it, id);
-                it->second->displayContact();
+                it->second.displayContact();
             }
         } else {
             std::cout << "Invalid choice. Please try again." << std::endl;
@@ -169,7 +162,7 @@ void PhoneBook::search(void)
     {
         auto it = _contacts.begin();
         std::advance(it, id);
-        it->second->displayContact();
+        it->second.displayContact();
     }
 }
 
@@ -220,16 +213,16 @@ void PhoneBook::listBookmarks(void)
     std::cout << "\n|     Index|First Name| Nickname |Phonenumber |" << std::endl;
     std::cout << "|----------|----------|----------|------------|" << std::endl;
     int index = 0;
-    for (const auto& [key, contactPtr] : _contacts)
+    for (auto& [key, contact] : _contacts)
     {
-        if (contactPtr->isBookmarked())
+        if (contact.isBookmarked())
         {
             std::cout << "|" << std::setw(10) << index << "|";
-            std::string field = contactPtr->getName();
+            std::string field = contact.getName();
             std::cout << std::setw(10) << Contact::formatField(field) << "|";
-            field = contactPtr->getNickName();
+            field = contact.getNickName();
             std::cout << std::setw(10) << Contact::formatField(field) << "|";
-            field = contactPtr->getPhoneNumber();
+            field = contact.getPhoneNumber();
             std::cout << std::setw(12) << Contact::formatField(field) << "|" << std::endl;
         }
         ++index;
