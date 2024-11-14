@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 20:09:53 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/11/14 10:35:38 by mamaral-         ###   ########.fr       */
+/*   Updated: 2024/11/14 12:24:47 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,30 @@ int main(void)
 		// if (input == "ADD")
 			pb.add();
 		else if (input == "SEARCH")
-			pb.search();
+			pb._displayPhoneBook();
 		else if (input == "REMOVE")
 		{
 			std::string removeInput;
 			std::cout << "Enter index or phone number to remove: ";
 			std::getline(std::cin, removeInput);
-			if (isdigit(removeInput[0]))
-				pb.remove(std::stoi(removeInput));
+
+			// Check if the input is a number
+			if (!removeInput.empty() && std::all_of(removeInput.begin(), removeInput.end(), ::isdigit))
+			{
+				int index = std::stoi(removeInput);
+				if (index >= 0 && index < static_cast<int>(pb.getContactsSize())) // Assuming getContactsSize() returns the size of the contacts
+				{
+					pb.remove(index);
+				}
+				else
+				{
+					pb.remove(removeInput); // Treat as phone number if index is out of range
+				}
+			}
 			else
+			{
 				pb.remove(removeInput);
+			}
 		}
 		else if (input == "BOOKMARK")
 		{

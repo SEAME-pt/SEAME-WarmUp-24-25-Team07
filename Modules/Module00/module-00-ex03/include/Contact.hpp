@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/08 19:46:30 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/11/14 10:34:39 by mamaral-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
@@ -20,28 +8,27 @@
 
 class Contact
 {
-	public:
-		Contact(void);
-		~Contact(void);
-		Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds);
-		void displayContact(void);
+    public:
+        Contact(void);
+        ~Contact(void);
+        Contact(std::string firstName, std::string lastName, std::string phoneNumber);
+        void displayContact(void);
 
-		std::string getFirstName(void);
-		std::string getLastName(void);
-		std::string getNickName(void);
+        std::string getName(void);
+        std::string getLastName(void);
+        std::string getNickName(void);
+		std::string getPhoneNumber(void);
 
-		static std::string formatField(std::string field);
+        static std::string formatField(std::string field);
 
-		void setBookmarked(bool);
-		bool isBookmarked();
+        void setBookmarked(bool);
+        bool isBookmarked();
 
-	private:
-		std::string _firstName;
-		std::string _lastName;
-		std::string _nickName;
-		std::string _phoneNumber;
-		std::string _darkestSecret;
-		bool _isBookmarked;
+    private:
+        std::string _name;
+        std::string _nickName;
+        std::string _phoneNumber;
+        bool _isBookmarked;
 };
 
 #endif
