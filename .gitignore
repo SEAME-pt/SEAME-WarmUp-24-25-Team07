@@ -53,7 +53,7 @@ compile_commands.json
 
 *_qmlcache.qrc
 
-# Module00ex02
-convert
-convert_program_test
+# binaries
+build/
+.vscode/
 
