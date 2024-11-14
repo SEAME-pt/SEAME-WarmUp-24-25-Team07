@@ -9,7 +9,7 @@ This is a C++ project developed to perform string conversion operations, such as
 - [Installation](#installation)
 - [Compilation and Execution](#compilation-and-execution)
 - [Project Structure](#project-structure)
-- [Tests](#tests)
+- [Tests](#run-tests)
 
 ## Prerequisites
 
