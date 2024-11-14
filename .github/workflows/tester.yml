@@ -5,8 +5,7 @@ on:
     branches:
       - feature/m00ex02
   pull_request:
-    branches:
-      - feature/m00ex02
+    
 
 jobs:
   test:
