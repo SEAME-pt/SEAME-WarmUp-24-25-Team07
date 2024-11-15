@@ -1,0 +1,43 @@
+Start testing: Nov 15 15:20 WET
+----------------------------------------------------------
+1/1 Testing: Runs
+1/1 Test: Runs
+Command: "/home/antoda-s/seame/Team07-SEAME-warm-up/Modules/Module02/ex01/build/parts"
+Directory: /home/antoda-s/seame/Team07-SEAME-warm-up/Modules/Module02/ex01/build
+"Runs" start time: Nov 15 15:20 WET
+Output:
+----------------------------------------------------------
+Default constructor called for SomeCar
+Body part name ...
+Brake LEFT FRONT =  part name
+Brake RIGHT FRONT =  part name
+Brake LEFT REAR =  part name
+Brake RIGHT REAR =  part name
+Chassis part name ...
+Engine part name ...
+Media System part name ...
+Seat LEFT FRONT =  part name
+Seat RIGHT FRONT =  part name
+Seat LEFT REAR =  part name
+Seat RIGHT REAR =  part name
+Tire LEFT FRONT =  part name
+Tire RIGHT FRONT =  part name
+Tire LEFT REAR =  part name
+Tire RIGHT REAR =  part name
+Transmission part name ...
+Trunk part name ...
+Wheel LEFT FRONT =  part name
+Wheel RIGHT FRONT =  part name
+Wheel LEFT REAR =  part name
+Wheel RIGHT REAR =  part name
+Wind Shield part name ...
+Destructor called for SomeCar
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"Runs" end time: Nov 15 15:20 WET
+"Runs" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 15 15:20 WET
