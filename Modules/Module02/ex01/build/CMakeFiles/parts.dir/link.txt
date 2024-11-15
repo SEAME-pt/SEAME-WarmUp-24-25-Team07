@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/parts.dir/sources/main.cpp.o CMakeFiles/parts.dir/sources/ACar.cpp.o CMakeFiles/parts.dir/sources/SomeCar.cpp.o CMakeFiles/parts.dir/sources/Part.cpp.o CMakeFiles/parts.dir/sources/partAll.cpp.o -o parts 

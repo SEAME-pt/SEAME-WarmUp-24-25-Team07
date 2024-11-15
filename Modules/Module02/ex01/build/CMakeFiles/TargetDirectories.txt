@@ -1,4 +1,0 @@
-/home/antoda-s/seame/Team07-SEAME-warm-up/Modules/Module02/ex01/build/CMakeFiles/parts.dir
-/home/antoda-s/seame/Team07-SEAME-warm-up/Modules/Module02/ex01/build/CMakeFiles/test.dir
-/home/antoda-s/seame/Team07-SEAME-warm-up/Modules/Module02/ex01/build/CMakeFiles/edit_cache.dir
-/home/antoda-s/seame/Team07-SEAME-warm-up/Modules/Module02/ex01/build/CMakeFiles/rebuild_cache.dir

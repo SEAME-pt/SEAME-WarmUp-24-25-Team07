@@ -55,5 +55,12 @@ compile_commands.json
 # VsCode Config
 .vscode/
 
+<<<<<<< HEAD
+# binaries
+build/
+.vscode/
+
+=======
 # CMake
 build/
+>>>>>>> dev
