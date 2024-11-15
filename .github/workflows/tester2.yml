@@ -1,0 +1,29 @@
+name: C++ Test Workflow
+
+on:
+  push:
+    branches:
+      - feature/m02
+  pull_request:
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake g++
+
+      - name: Configure and Build
+        run: |
+          cmake -S Modules/Module02/ex01 -B build
+          cmake --build build
+
+      - name: Run Tests
+        run: |
+          cd build
+          ctest --output-on-failure --verbose
