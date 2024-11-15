@@ -3,7 +3,7 @@ name: C++ Test Workflow
 on:
   push:
     branches:
-      - feature/m02
+      - 11-module-02
   pull_request:
 
 
