@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 11-module-02
-  pull_request:
+#  pull_request:
 
 
 jobs:
