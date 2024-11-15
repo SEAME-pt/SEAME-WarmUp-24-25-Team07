@@ -1,16 +1,22 @@
-#include "SomeCar.hpp"
-#include "../includes/partEngine.hpp"
-#include "../includes/partWheel.hpp"
-#include "../includes/partTransmission.hpp"
-#include "../includes/partBreak.hpp"
+#include "../includes/SomeCar.hpp"
+#include "../includes/partAll.hpp"
+
 
 // Constructors
 SomeCar::SomeCar() : ACar(), _maxSpeed(0) {
     std::cout << "Default constructor called for SomeCar" << std::endl;
-    _engine = new Engine();
-    _wheels = new Wheel[4];
-    _brakes = new Brake[4];
-    _transmission = new Transmission();
+    _body = new partBody();
+    _brakes = new partBrake[4];
+    _chassis = new partChassis();
+    _doors = new partDoor[4];
+    _engine = new partEngine();
+    _mediaSystem = new partMediaSystem();
+    _seats = new partSeat[4];
+    _tires = new partTire[4];
+    _transmission = new partTransmission();
+    _trunk = new partTrunk();
+    _wheels = new partWheel[4];
+    _windShield = new partWindShield();
 }
 
 SomeCar::SomeCar(const std::string& make, const std::string& model, const unsigned int year, const unsigned int maxSpeed)
@@ -25,10 +31,18 @@ SomeCar::SomeCar(const SomeCar& original) : ACar(original), _maxSpeed(original._
 // Destructor
 SomeCar::~SomeCar() {
     std::cout << "Destructor called for SomeCar" << std::endl;
-    delete _engine;
-    delete [] _wheels;
+    delete _body;
     delete [] _brakes;
+    delete _chassis;
+    delete [] _doors;
+    delete _engine;
+    delete _mediaSystem;
+    delete [] _seats;
+    delete [] _tires;
     delete _transmission;
+    delete _trunk;
+    delete [] _wheels;
+    delete _windShield;
 }
 
 // Member function
@@ -37,12 +51,17 @@ void SomeCar::drive() const {
 }
 
 void SomeCar::printParts(void) const {
+    _body->print();
+    for (int i = 0; i < 4; ++i) _brakes[i].print(i);
+    _chassis->print();
     _engine->print();
-    for (int i = 0; i < 4; ++i) {
-        _wheels[i].print();
-        _brakes[i].print();
-    }
+    _mediaSystem->print();
+    for (int i = 0; i < 4; ++i) _seats[i].print(i);
+    for (int i = 0; i < 4; ++i) _tires[i].print(i);
     _transmission->print();
+    _trunk->print();
+    for (int i = 0; i < 4; ++i) _wheels[i].print(i);
+    _windShield->print();
 }
 
 // Operator overload

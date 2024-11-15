@@ -16,7 +16,7 @@ public:
     ACar& operator=(const ACar& original);
 
     virtual void drive() const = 0;
-    virtual std::string getInfo() const = 0;
+    virtual std::string getInfo() const;
 
     virtual ~ACar();
 };

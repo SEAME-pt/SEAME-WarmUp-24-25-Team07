@@ -4,7 +4,7 @@
 #include <string>
 
 int main() {
-    Car myCar;
+    SomeCar myCar;
     myCar.printParts();
 
     return 0;

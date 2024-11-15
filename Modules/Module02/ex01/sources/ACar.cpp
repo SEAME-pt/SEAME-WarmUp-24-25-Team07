@@ -18,3 +18,7 @@ ACar& ACar::operator=(const ACar& other) {
 }
 
 ACar::~ACar() {}
+
+std::string ACar::getInfo() const {
+    return _make + " " + _model + " " + std::to_string(_year);
+}
