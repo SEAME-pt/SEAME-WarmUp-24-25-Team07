@@ -52,8 +52,15 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+# VsCode Config
+.vscode/
 
+<<<<<<< HEAD
 # binaries
 build/
 .vscode/
 
+=======
+# CMake
+build/
+>>>>>>> dev
