@@ -6,7 +6,7 @@
 /*   By: mamaral- <mamaral-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 19:56:57 by antoda-s          #+#    #+#             */
-/*   Updated: 2024/11/14 15:43:22 by mamaral-         ###   ########.fr       */
+/*   Updated: 2024/11/15 11:55:28 by mamaral-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,20 @@ void PhoneBook::remove(const std::string& phoneNumber)
     {
         std::cout << "\n██████  CONTACT NOT FOUND  ██████████████████████████\n" << std::endl;
     }
+}
+
+void PhoneBook::bookmark(int index)
+{
+    if (index < 0 || index >= static_cast<int>(_contacts.size()))
+    {
+        std::cout << "\n██████  INVALID INDEX  ██████████████████████████████\n" << std::endl;
+        return;
+    }
+
+    auto it = _contacts.begin();
+    std::advance(it, index);
+    it->second.setBookmarked(true);
+    std::cout << "\n██████  CONTACT BOOKMARKED  ██████████████████████████\n" << std::endl;
 }
 
 void PhoneBook::listBookmarks(void)
